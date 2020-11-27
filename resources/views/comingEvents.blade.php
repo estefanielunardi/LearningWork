@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('You are in COMING EVENTS!') }}
+                    {{ __('You are in COMING EVENTS!!!!!!!!!') }}
                 </div>
             </div>
         </div>

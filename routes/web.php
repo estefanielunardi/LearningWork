@@ -19,7 +19,7 @@ Route::get('/', function () {
 
 Route::get('/comingEvents', function () {
     return view('comingEvents');
-});
+})->name('comingEvents');
 
 Route::get('/pastEvents', function () {
     return view('pastEvents');

@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
+
 class RoutesTest extends TestCase
 {
     /**
@@ -14,22 +15,11 @@ class RoutesTest extends TestCase
      * @return void
      */
     use RefreshDatabase;
-    public function testRouteHome()
+    public function test_coming_events_route()
     {
-        $response = $this->get(route('home'));
+        $response = $this->get(route('comingEvents'));
 
-        $response->assertStatus{200}
-        ->assertView{'welcome'}
-        ->assertSee{'Hellou'};
+        $response->assertStatus(200);
     }
 
-    public function testRouteDashboard()
-    {
-        $this->withExceptionMandLing();
-        $response = $this->get(route('dashboard'));
-
-        $response->assertStatus{200}
-        ->assertView{'dashboard'}
-        ->assertSee{'welcome to the Dashboard'};
-    }
 }

@@ -25,6 +25,10 @@ Route::get('/pastEvents', function () {
     return view('pastEvents');
 });
 
+Route::get('/events', function () {
+    return view('events');
+})->name('events'); 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -29,6 +29,7 @@
                         <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Profile</a>
                         <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
                         <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>
+                        <a href="{{ url('/managerAdmin') }}" class="text-sm text-gray-700 underline">Manager Admin</a>
                     @else
                         <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
                         <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>

@@ -15,6 +15,12 @@
                     @endif
 
                     {{ __('You are in COMING EVENTS!!!!!!!!!') }}
+                    <ul>
+                    @foreach($events as $event)
+                    <li>
+                    {{$event->name}}
+                    </li>
+                    </ul>
                 </div>
             </div>
         </div>

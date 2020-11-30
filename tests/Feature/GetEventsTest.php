@@ -22,13 +22,13 @@ class GetEventsTest extends TestCase
         $this->assertCount(4, $events); 
         //tenemos que buscar la tabla con eventos en la bbdd
         $events= Event::all();
-        // dd($events); 
         //tenemos que comprobar la ruta 
         $response = $this->get(route('comingEvents'));
         //tenemos que comprobar que la vista es la correcta
         $response->assertViewIs('comingEvents'); 
         
-        //tenemos que ver que la vista tenga todos los eventos 
+        //tenemos que ver que la vista tenga todos los eventos
+        $response->assertViewHas('comingEvents, $events');
         //todos los eventos se deben mostrar
 
         $response = $this->get('/');

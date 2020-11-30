@@ -23,8 +23,8 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            'name'=> 'MasterClass TDD',
-            'date'=> '27/11/2020'
+            'name' => $this->faker->name,
+            'date' => $this->faker->date, 
         ];
     }
 }

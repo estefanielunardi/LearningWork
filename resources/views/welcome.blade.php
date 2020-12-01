@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    
+
 
         <title>Laravel</title>
 
@@ -21,61 +24,94 @@
             }
         </style>
     </head>
-    <body class="antialiased">
+    <body class="antialiased background">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
             @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            <div>
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block navbar-nav ml-auto">
                     @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Profile</a>
-                        <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
-                        <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>
-                        <a href="{{ url('/managerAdmin') }}" class="text-sm text-gray-700 underline">Manager Admin</a>
+                    <li class="nav-item">
+                        <a href="{{ url('/home') }}" class="nav-link">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
+                    </li>
+                        <a href="{{ url('/managerAdmin') }}" class="nav-link">Manager Admin</a>
                     @else
-                        <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
-                        <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+                    <li class="nav-item">
+                        <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
+                    <li class="nav-item">
+                        <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
+                        <a href="{{ route('login') }}" class="nav-link">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+                            <a href="{{ route('register') }}" class="nav-link">Register</a>
                         @endif
                     @endauth
                 </div>
             @endif
-        </div>
-        <div>
-            <h1>Hightlight Events</h1>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+
+            <div class = "container" id="containerEvents">
+                <div>
+                    <h1>Hightlight Events</h1>
                 </div>
-            </div>
-        </div>
-        <div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Coming Events</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ url('/comingEvents') }}" class="btn btn-primary">Go Coming Events</a>
+                <div id = "cardEvents" class="row row-cols-1 row-cols-md-2">
+                    <div class="col mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="img" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>  
+                    <div  class="col mb-4">
+                        <div class="card" style="width: 18rem;">
+                            <img src="..." class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <img src="..." class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Past Events</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="{{ url('/pastEvents') }}" class="btn btn-primary">Go Past Events</a>
+                <div class="row row-cols-1 row-cols-md-2">
+                    <div>
+                        <div>
+                            <h2>Coming Events</h2>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Coming Events</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="{{ url('/comingEvents') }}" class="btn btn-primary">Go Coming Events</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <h2>Past Events</h2>
+                        </div>
+                        <div class="col mb-4">
+                            <div class="card" style="width: 18rem;">
+                                <img src="..." class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Past Events</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                    <a href="{{ url('/pastEvents') }}" class="btn btn-primary">Go Past Events</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

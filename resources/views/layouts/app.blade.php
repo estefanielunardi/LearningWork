@@ -41,8 +41,12 @@
                         <!-- Authentication Links -->
 
                         @guest
-                        <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
-                        <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>
+                                <li class="nav-item">
+                                    <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
+                                </li>
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -55,9 +59,15 @@
                                 </li>
                             @endif
                         @else
-                                <a href="{{ url('/home') }}" class="text-sm text-gray-700 underline">Profile</a>
-                                <a href="{{ url('/comingEvents') }}" class="text-sm text-gray-700 underline">Coming events</a>
-                                <a href="{{ url('/pastEvents') }}" class="text-sm text-gray-700 underline">Past events</a>
+                        <li class="nav-item">
+                                <a href="{{ url('/home') }}" class="nav-link">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
+                        </li>
+                        <li class="nav-item">
+                                <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
+                        </li>
                             <li class="nav-item dropdown">
 
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

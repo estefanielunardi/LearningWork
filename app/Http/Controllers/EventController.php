@@ -8,21 +8,14 @@ use Illuminate\Http\Request;
 class EventController extends Controller
 {
     
-    
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $events= Event::all(); 
-        // $eventsHighlight = $events([
-        //     'type' => 'highlight'
-        // ]); 
+        // $events= Event::all(); 
+
+        $highlightevents = DB::table('learningworks')->where('type', '=', 'highlight')->get();
 
         return view('welcome', [
-            'events' => $events, 
+            'events' => $highlightevents, 
         ]);
     }
 

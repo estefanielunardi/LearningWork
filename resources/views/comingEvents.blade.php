@@ -8,19 +8,9 @@
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are in COMING EVENTS!!!!!!!!!') }}
-                    <ul>
-                    @foreach($events as $event)
-                    <li>
-                    {{$event->name}}
-                    </li>
-                    </ul>
+                   <ul>
+                       <li>{{$events[0]->name}}</li>
+                   </ul>
                 </div>
             </div>
         </div>

@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
-Route::get('/comingEvents', function () {
-    return view('comingEvents');
-})->name('comingEvents');
+// Route::get('/comingEvents', function () {
+//     return view('comingEvents');
+// })->name('comingEvents');
 
 Route::get('/pastEvents', function () {
     return view('pastEvents');
@@ -33,4 +33,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::get('/comingEvents', [App\Http\Controllers\EventController::class, 'index'])->name('comingEvents');
+Route::get('/comingEvents', [App\Http\Controllers\EventController::class, 'index'])->name('comingEvents');

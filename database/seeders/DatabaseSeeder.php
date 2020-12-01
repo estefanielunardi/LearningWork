@@ -24,6 +24,10 @@ class DatabaseSeeder extends Seeder
         
         \App\Models\User::factory(10)->create();
 
-        Event::factory(4)->create();
+        \App\Models\Event::factory(4)->create(
+            [   
+                'type'=> 'highlight'
+            ]
+        );
     }
 }

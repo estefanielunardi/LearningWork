@@ -42,6 +42,9 @@ class EventController extends Controller
             'date' => $request->date, 
             'type' => $request->type
         ]);
+        
+        return view('welcome');
+    
     }
 
     /**

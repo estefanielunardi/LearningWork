@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('New Event') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('store') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -26,12 +26,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Description') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="name" autofocus>
 
-                                @error('Event Description')
+                                @error('Event Date')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -40,12 +40,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Date') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Type') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="type" type="text" class="form-control @error('name') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="name" autofocus>
 
-                                @error('Event Date')
+                                @error('Event Type')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

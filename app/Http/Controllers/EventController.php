@@ -12,11 +12,7 @@ class EventController extends Controller
     {
         $events= Event::all(); 
 
-        // $highlightevents = DB::table('learningworks')->where('type', '=', 'highlight')->get();
-
-        return view('welcome', [
-            'events' => $events, 
-        ]);
+        return view('welcome', compact('events'));
     }
 
     /**
@@ -42,9 +38,7 @@ class EventController extends Controller
             'date' => $request->date, 
             'type' => $request->type
         ]);
-        
-        return view('welcome');
-    
+        return redirect(route('welcome')); 
     }
 
     /**

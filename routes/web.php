@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-})->name('welcome');
+});
 
 // Route::get('/comingEvents', function () {
 //     return view('comingEvents');
@@ -25,8 +25,8 @@ Route::get('/pastEvents', function () {
     return view('pastEvents');
 });
 
-Route::get('/events', function () {
-    return view('events');
+Route::get('/CreateEvents', function () {
+    return view('CreateEvents');
 })->name('events'); 
 
 Auth::routes();

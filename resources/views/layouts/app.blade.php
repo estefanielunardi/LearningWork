@@ -6,7 +6,6 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
@@ -18,6 +17,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
@@ -41,12 +42,8 @@
                         <!-- Authentication Links -->
 
                         @guest
-                                <li class="nav-item">
-                                    <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
-                                </li>
+                        <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
+                        <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
                             @if (Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -59,17 +56,12 @@
                                 </li>
                             @endif
                         @else
-                        <li class="nav-item">
                                 <a href="{{ url('/home') }}" class="nav-link">Profile</a>
-                        </li>
-                        <li class="nav-item">
+                                <a href="{{ url('/CreateEvents') }}" class="nav-link">Create Event</a>
                                 <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
-                        </li>
-                        <li class="nav-item">
                                 <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
-                        </li>
-                            <li class="nav-item dropdown">
 
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -97,4 +89,7 @@
         </main>
     </div>
 </body>
+<footer>
+@extends('layouts.footer')
+</footer>
 </html>

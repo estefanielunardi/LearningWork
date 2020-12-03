@@ -13,13 +13,13 @@ class CreateEventTest extends TestCase
     public function test_auth_users_can_see_create_events_view()
     {
         
-        $response = $this->get(route('create'));
+        $response = $this->get(route('createEvents'));
         
         // $this->withoutExceptionHandling(); 
         
         $response->assertStatus(200)
-        ->assertViewIs('eventsCreate')
-        ->assertSee("Crear evento"); 
+        ->assertViewIs('createEvents')
+        ->assertSee(""); 
         
         $response = $this->post(route('store'));
     }

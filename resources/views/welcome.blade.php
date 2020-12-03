@@ -47,7 +47,7 @@
                         <a class="nav-link" href="{{ url('/home') }}">Profile</a>
                     </li>
                     <li class="nav-item active">
-                        <a href="{{ url('/CreateEvents') }}" class="nav-link">Create Event</a>
+                        <a href="{{ url('/createEvents') }}" class="nav-link">Create Event</a>
                     </li>
                 </ul>
                 <div class="navbar-nav">

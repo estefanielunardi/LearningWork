@@ -10,12 +10,12 @@ class EventController extends Controller
     
     public function index()
     {
-        // $events= Event::all(); 
+        $events= Event::all(); 
 
-        $highlightevents = DB::table('learningworks')->where('type', '=', 'highlight')->get();
+        // $highlightevents = DB::table('learningworks')->where('type', '=', 'highlight')->get();
 
         return view('welcome', [
-            'events' => $highlightevents, 
+            'events' => $events, 
         ]);
     }
 
@@ -26,7 +26,7 @@ class EventController extends Controller
      */
     public function create()
     {
-        // return view('welcome');
+        return view('eventsCreate');
     }
 
     /**

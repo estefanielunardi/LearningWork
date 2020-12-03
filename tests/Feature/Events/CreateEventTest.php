@@ -14,11 +14,13 @@ class CreateEventTest extends TestCase
     {
         
         $response = $this->get(route('create'));
-
-        $response = $this->post(route('store'));
-
+        
         // $this->withoutExceptionHandling(); 
-
-        $response->assertStatus(200);
+        
+        $response->assertStatus(200)
+        ->assertViewIs('eventsCreate')
+        ->assertSee("Crear evento"); 
+        
+        $response = $this->post(route('store'));
     }
 }

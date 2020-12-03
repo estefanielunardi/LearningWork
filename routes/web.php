@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController; 
+use Illuminate\Support\Facades\Auth; 
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +28,10 @@ Route::get('/pastEvents', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', [App\Http\Controllers\EventController::class, 'index'])->name('welcome');
+Route::get('/', [EventController::class, 'index'])->name('welcome');
 
-Route::get('/create', [App\Http\Controllers\EventController::class, 'create'])->name('create');
+Route::get('/create', [EventController::class, 'create'])->name('create');
 
-Route::post('/store', [App\Http\Controllers\EventController::class, 'store'])->name('store');
+Route::post('/events',[EventController::class, 'store'])->name('store');

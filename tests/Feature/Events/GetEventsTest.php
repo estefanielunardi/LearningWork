@@ -14,8 +14,8 @@ class GetEventsTest extends TestCase
 
     public function test_can_retrive_all_events()
     {
-        $events= Event::factory(4)->create(); 
-        
+        $events= Event::factory(5)->create(); 
+
         $this->assertCount(4, $events); 
 
         $events= Event::all();

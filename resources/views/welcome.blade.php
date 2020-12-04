@@ -96,9 +96,9 @@
     <div id="boxPrincipalTitle">
         <div class="row">
             <div class="col-sm-12">
-                <div id="principalTitle">LearningWorks</div>
+                <!-- <div id="principalTitle">LearningWorks</div> -->
                 <div id="entracePicture">
-                    <img class="img-fluid" src="https://www.networkworld.es/archivos/201810/concert-2527495-960-720.jpg" alt="">
+                    <img class="img-fluid" src="https://i.ibb.co/TrnV0jB/logo-principal-01-01-01.png" alt="logo-principal-01-01-01" border="0"></a>
                 </div>
             </div>
         </div>

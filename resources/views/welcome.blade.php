@@ -107,91 +107,32 @@
     <br>
     <br>
     <div class="row" id="containerEvents">
+        
         <div class="col-sm-12 align-middle">
-            <h2>Hightlight Events</h2>
+            <h2>Highlighted Events</h2>
         </div>
+        
         <div class="card-group">
+            @foreach ($events as $event)
             <div class="card">
-                <img src="https://assets.afcdn.com/story/20200407/2047265_w980h638c1cx1061cy707cxt0cyt0cxb2121cyb1414.jpg" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/150/150.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">TOP 1</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <h5 class="card-title"> {{$event->name}} </h5>
+                    <p class="card-text">Date: {{$event->date}} </p>
+                    <p class="card-text"><small class="text-muted">Time: {{$event->time}}</small></p>
+                    <p class="card-text"><small class="text-muted">Description: {{$event->description}}</small></p>
+                    <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
+                    <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
                 </div>
-            </div>
-            <div class="card">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZuHF-19pxz3PI_PMWtRutpzXkOsJSriGxwA&usqp=CAU" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">TOP 2</h5>
-                    <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://www.avancecomunicacion.com/wp-content/uploads/2018/02/cab-eventos-y-marketing.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">TOP 3</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://www.avancecomunicacion.com/wp-content/uploads/2018/02/cab-eventos-y-marketing.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">TOP 4</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
-            <div class="card">
-                <img src="https://www.avancecomunicacion.com/wp-content/uploads/2018/02/cab-eventos-y-marketing.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">TOP 5</h5>
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-            </div>
+            </div> 
+            @endforeach
         </div>
+
     </div>
     <br>
     <br>
 
-    <!-- <div class="row" id="containerEvents">
-        <div class="col-sm-12 align-middle">
-            <h2>Hightlight Events</h2>
-        </div>
-        <div id="cardEvents" class="col-sm-12">
-            <div class="col mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://assets.afcdn.com/story/20200407/2047265_w980h638c1cx1061cy707cxt0cyt0cxb2121cyb1414.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZuHF-19pxz3PI_PMWtRutpzXkOsJSriGxwA&usqp=CAU" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-4">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://www.avancecomunicacion.com/wp-content/uploads/2018/02/cab-eventos-y-marketing.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                    </div>
-                </div>
-            </div>
-        </div> -->
+   
     <div class="col-sm-12">
         <div clas="row">
             <div class="col-sm-12">
@@ -225,7 +166,6 @@
         </div>
     </div>
     </div>
-
     @extends('layouts.footer')
 </body>
 

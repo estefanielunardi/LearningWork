@@ -18,7 +18,6 @@ class CreateEventTest extends TestCase
 
         $response = $this->get(route('createEvents'));
         
-        // $this->withoutExceptionHandling(); 
 
         $response->assertStatus(200)
         ->assertViewIs('createEvents')
@@ -31,7 +30,6 @@ class CreateEventTest extends TestCase
     {
         $response = $this->get(route('createEvents'));
         
-        // $this->withoutExceptionHandling(); 
 
         $response->assertStatus(302); 
     }
@@ -57,7 +55,13 @@ class CreateEventTest extends TestCase
                 'id' => 1, 
                 'name' => 'MasterClass Vue Paul'
             ]); 
+    }
 
+    public function test_not_auth_can_store_events()
+    {
+        $response = $this->get(route('store'));
+    
 
+        $response->assertStatus(405); 
     }
 }

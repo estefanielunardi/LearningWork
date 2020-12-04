@@ -96,7 +96,6 @@
     <div id="boxPrincipalTitle">
         <div class="row">
             <div class="col-sm-12">
-                <!-- <div id="principalTitle">LearningWorks</div> -->
                 <div id="entracePicture">
                     <img class="img-fluid" src="https://i.ibb.co/TrnV0jB/logo-principal-01-01-01.png" alt="logo-principal-01-01-01" border="0"></a>
                 </div>
@@ -106,16 +105,16 @@
 
     <br>
     <br>
-    <div class="row" id="containerEvents">
+    <div class="row justify-content-around" id="containerEvents">
         
         <div class="col-sm-12 align-middle">
             <h2>Highlighted Events</h2>
         </div>
         
-        <div class="card-group">
+        <div class="card-deck">
             @foreach ($events as $event)
             <div class="card">
-                <img src="https://picsum.photos/150/150.jpg" class="card-img-top" alt="...">
+                <img src="https://picsum.photos/150/80.jpg" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"> {{$event->name}} </h5>
                     <p class="card-text">Date: {{$event->date}} </p>
@@ -133,33 +132,25 @@
     <br>
 
    
-    <div class="col-sm-12">
-        <div clas="row">
-            <div class="col-sm-12">
-                <h2>Coming Events</h2>
-            </div>
-            <div class="col-ms-12 mb-4" id="containerBoxFuture">
-                <div class="card" style="width: 18rem;">
+    <div class="row row-cols-2">
+        <div>
+            <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">
+                <div class="card border-dark mb-3" style="width: 18rem;">
                     <img src="https://i.pinimg.com/736x/34/07/e2/3407e2a758c770b90ab39008a0965409.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Coming Events</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{ url('/comingEvents') }}" class="btn btn-primary">Go Coming Events</a>
+                        <a href="{{ url('/comingEvents') }}" class="btn btn-dark">Go to Coming Events</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <h2>Past Events</h2>
-            </div>
-            <div class="col-sm-12 mb-4" id="containerBoxPast">
-                <div class="card" style="width: 18rem;">
+        <div>
+            <div class="col-sm-12 mb-4 text-center" id="containerBoxPast">
+                <div class="card border-dark mb-3" style="width: 18rem;">
                     <img src="https://i.ytimg.com/vi/J6gZCjsH3gE/hqdefault.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Past Events</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="{{ url('/pastEvents') }}" class="btn btn-primary">Go Past Events</a>
+                        <a href="{{ url('/pastEvents') }}" class="btn btn-dark">Go to Past Events</a>
                     </div>
                 </div>
             </div>

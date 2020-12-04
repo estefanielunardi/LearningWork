@@ -46,7 +46,10 @@ class CreateEventTest extends TestCase
         $this->post(route('store'), [
             'name' => 'MasterClass Vue Paul', 
             'date' => '3/12/2020', 
-            'type' => 'highlight'
+            'time' => '12:30',
+            'limit' => '30', 
+            'description' => 'Introducción al framework de JavaScript Vue', 
+            'requirements' => 'Conocimientos básicos de JavaScript',
         ]);
 
         $this->assertDatabaseCount('events', 1)

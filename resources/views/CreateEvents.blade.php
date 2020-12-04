@@ -29,7 +29,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Date') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date" type="text" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="name" autofocus>
+                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="name" autofocus>
 
                                 @error('Event Date')
                                     <span class="invalid-feedback" role="alert">
@@ -40,17 +40,63 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Type') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Time') }}</label>
 
                             <div class="col-md-6">
-                                <input id="type" type="text" class="form-control @error('name') is-invalid @enderror" name="type" value="{{ old('type') }}" required autocomplete="name" autofocus>
+                                <input id="time" type="time" class="form-control @error('name') is-invalid @enderror" name="time" value="{{ old('time') }}" required autocomplete="name" autofocus>
 
-                                @error('Event Type')
+                                @error('Event Time')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Limit Event Participants') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="limit" type="bigInteger" class="form-control @error('name') is-invalid @enderror" name="limit" value="{{ old('limit') }}" required autocomplete="name" autofocus>
+
+                                @error('Limit Event Participants')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Description') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="description" type="text" class="form-control @error('name') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="name" autofocus>
+
+                                @error('Event Description')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Technical Requirements') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="requirements" type="text" class="form-control @error('name') is-invalid @enderror" name="requirements" value="{{ old('requirements') }}" required autocomplete="name" autofocus>
+
+                                @error('Event Technical Requirements')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                        <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
                         </div>
 
                         <!-- <div class="form-group row">

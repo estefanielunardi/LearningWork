@@ -36,7 +36,10 @@ class EventController extends Controller
         Event::create([
             'name' => $request->name, 
             'date' => $request->date, 
-            'type' => $request->type
+            'time' => $request->time, 
+            'limit' => $request->limit, 
+            'description' => $request->description, 
+            'requirements' => $request->requirements, 
         ]);
         return redirect(route('welcome')); 
     }

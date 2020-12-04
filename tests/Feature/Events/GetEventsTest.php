@@ -6,6 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\Event; 
+use App\Models\User; 
 
 class GetEventsTest extends TestCase
 {
@@ -14,16 +15,19 @@ class GetEventsTest extends TestCase
 
     public function test_can_retrive_all_events()
     {
-        $events= Event::factory(5)->create(); 
+        $this->withoutExceptionHandling(); 
 
-        $this->assertCount(4, $events); 
+        $events = Event::factory(5)->create();
+
+        $this->assertCount(5, $events); 
 
         $events= Event::all();
 
-        $response = $this->get(route('comingEvents'))
+        $response = $this->get(route('welcome'))
             ->assertStatus(200)
-            ->assertViewIs('comingEvents')
+            ->assertViewIs('welcome')
             ->assertViewHas('events', $events)
             ->assertSee($events[0] -> name);
+            
     }
 }

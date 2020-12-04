@@ -25,7 +25,11 @@ class EventFactory extends Factory
         return [
             'name' => $this->faker->name,
             'date' => $this->faker->date, 
-            'type' => $this->faker->sentence 
+            'time' => $this->faker->time, 
+            'limit'=> $this->faker->randomNumber(), 
+            'description'=> $this->faker->text, 
+            'requirements'=> $this->faker->text,
+    
         ];
     }
 }

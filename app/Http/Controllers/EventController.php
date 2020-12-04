@@ -12,11 +12,7 @@ class EventController extends Controller
     {
         $events= Event::all(); 
 
-        // $highlightevents = DB::table('learningworks')->where('type', '=', 'highlight')->get();
-
-        return view('welcome', [
-            'events' => $events, 
-        ]);
+        return view('welcome', compact('events'));
     }
 
     /**
@@ -37,7 +33,15 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Event::create([
+            'name' => $request->name, 
+            'date' => $request->date, 
+            'time' => $request->time, 
+            'limit' => $request->limit, 
+            'description' => $request->description, 
+            'requirements' => $request->requirements, 
+        ]);
+        return redirect(route('welcome')); 
     }
 
     /**

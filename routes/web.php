@@ -15,10 +15,6 @@ Route::get('/comingEvents', function () {
     return view('comingEvents');
 });
 
-Route::get('/createEvents', function () {
-    return view('createEvents');
-});
-
 Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');

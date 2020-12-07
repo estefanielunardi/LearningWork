@@ -24,4 +24,17 @@ class EventFactory extends Factory
     
         ];
     }
+
+    public function edit()
+    {
+        return [
+            'name' => $this->faker->name,
+            'date' => $this->faker->date, 
+            'time' => $this->faker->time, 
+            'limit'=> $this->faker->randomNumber(), 
+            'description'=> $this->faker->text, 
+            'requirements'=> $this->faker->text,
+    
+        ];
+    }
 }

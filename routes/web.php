@@ -24,3 +24,5 @@ Route::get('/', [EventController::class, 'index'])->name('welcome');
 Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
+
+Route::get('/editEvents', [EventController::class, 'edit'])->name('editEvents')->middleware('auth'); 

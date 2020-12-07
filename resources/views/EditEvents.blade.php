@@ -7,10 +7,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('New Event') }}</div>
+                <div class="card-header">{{ __('Edit Event') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('store') }}">
+                    <form method="GET" action="{{ route('edit') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -100,11 +100,14 @@
                         <div class="form-group row">
                         <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
                         </div>
-
+                        {{-- <form accept-charset="UTF-8" action="" method="POST"><input name="_method" type="hidden" value="PUT"></form> --}}
+                        <form method="post" action="{{ route('events.update', $event->id) }}">
+                            @method('PUT')
+                            @csrf
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-dark">
-                                    {{ __('New Event') }}
+                                    {{ __('Edit Event') }}
                                 </button>
                             </div>
                         </div>

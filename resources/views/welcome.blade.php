@@ -122,6 +122,7 @@
                     <p class="card-text"><small class="text-muted">Description: {{$event->description}}</small></p>
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
                     <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
+                    <button type="button" class="btn btn-info justify-content-center">Summit Event</button>
                 </div>
             </div> 
             @endforeach

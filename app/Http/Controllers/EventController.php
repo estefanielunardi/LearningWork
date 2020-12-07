@@ -12,7 +12,7 @@ class EventController extends Controller
     {
         $events= Event::all(); 
 
-        return view('welcome', compact('events'));
+        return view('comingEvents', compact('events'));
     }
 
     /**
@@ -41,7 +41,7 @@ class EventController extends Controller
             'description' => $request->description, 
             'requirements' => $request->requirements, 
         ]);
-        return redirect(route('welcome')); 
+        return redirect(route('comingEvents')); 
     }
 
     /**

@@ -61,10 +61,20 @@ class CreateEventTest extends TestCase
         $response->assertViewIs('comingEvents');
     }
 
-    public function test_not_auth_can_store_events()
+    public function test_not_auth_user_can_store_events()
     {
         $response = $this->get(route('store'));
     
         $response->assertStatus(405); 
+    }
+
+    public function test_auth_user_can_delete_events()
+    {
+        $this->actingAs(User::factory()->create());
+        $deleteEvent = Event::factory()->create();
+        
+        $this->delete('/events/'.$deleteEvent->id);
+        
+        $this->assertDatabaseCount('events', 1);
     }
 }

@@ -96,7 +96,22 @@
                         </div>
 
                         <div class="form-group row">
-                        <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="category" class="form-control @error('name') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="name" autofocus>
+                                    <option value="standard">standard</option>
+                                    <option value="highlight">highlight</option>
+                                    <option value="both">both</option>
+                                </select>
+
+                                @error('Event Technical Requirements')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
+                            </div>
                         </div>
 
                         <div class="form-group row mb-0">

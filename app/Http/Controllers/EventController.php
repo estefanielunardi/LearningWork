@@ -10,7 +10,7 @@ class EventController extends Controller
     
     public function index()
     {
-        $events= Event::all(); 
+        $events= Event::whereIn('category', ['standard', 'both'])->get();
 
         return view('comingEvents', compact('events'));
     }
@@ -40,6 +40,7 @@ class EventController extends Controller
             'limit' => $request->limit, 
             'description' => $request->description, 
             'requirements' => $request->requirements, 
+            'category' => $request->category, 
         ]);
         return redirect(route('comingEvents')); 
     }

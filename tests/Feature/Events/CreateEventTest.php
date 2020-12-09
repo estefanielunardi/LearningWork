@@ -48,6 +48,7 @@ class CreateEventTest extends TestCase
             'limit' => '30', 
             'description' => 'Introducción al framework de JavaScript Vue', 
             'requirements' => 'Conocimientos básicos de JavaScript',
+            'category' => 'standard',
         ]);
 
         $this->assertDatabaseCount('events', 1)
@@ -55,13 +56,15 @@ class CreateEventTest extends TestCase
                 'id' => 1, 
                 'name' => 'MasterClass Vue Paul'
             ]); 
+
+        $response = $this->post(route('comingEvents'));
+        $response->assertViewIs('comingEvents');
     }
 
     public function test_not_auth_can_store_events()
     {
         $response = $this->get(route('store'));
     
-
         $response->assertStatus(405); 
     }
 }

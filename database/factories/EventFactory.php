@@ -21,6 +21,7 @@ class EventFactory extends Factory
             'limit'=> $this->faker->randomNumber(), 
             'description'=> $this->faker->text, 
             'requirements'=> $this->faker->text,
+            'category'=> $this->faker->text,
     
         ];
     }

@@ -127,12 +127,11 @@
             </div> 
             @endforeach
         </div>
-
     </div>
+    
     <br>
     <br>
 
-   
     <div class="row row-cols-2">
         <div>
             <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">

@@ -20,6 +20,7 @@ class CreateEventsTable extends Migration
             $table->text('requirements');
             $table->timestamps();
             $table->boolean('highlight')->default(false); 
+            $table->string('category');
         });
     }
 

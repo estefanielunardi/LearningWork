@@ -89,4 +89,11 @@ class EventController extends Controller
     {
         //
     }
+
+    public function highlight()
+    {  
+         $events= Event::whereIn('category', ['highlight', 'both'])->get();
+        return view('welcome', compact('events'));
+    }
 }
+

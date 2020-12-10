@@ -32,9 +32,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {  
-         $events= Event::whereIn('category', ['highlight', 'both'])->get();
-        return view('welcome', compact('events'));
-    }
+    // public function index()
+    // {  
+    //      $events= Event::whereIn('category', ['highlight', 'both'])->get();
+    //     return view('welcome', compact('events'));
+    // }
 }

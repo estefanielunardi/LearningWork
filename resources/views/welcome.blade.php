@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
@@ -54,11 +55,11 @@
                     </a>
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
-                            {{ __('Logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </ul>
                 @else
                 <ul class="navbar-nav">
@@ -100,11 +101,11 @@
     <br>
     <br>
     <div class="row justify-content-around" id="containerEvents">
-        
+
         <div class="col-sm-12 align-middle">
             <h2>Highlighted Events</h2>
         </div>
-        
+
         <div class="card-deck">
             @foreach ($events as $event)
             <div class="card">
@@ -116,13 +117,23 @@
                     <p class="card-text"><small class="text-muted">Description: {{$event->description}}</small></p>
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
                     <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
-                    <button type="button" class="btn btn-info justify-content-center">Summit Event</button>
+                    <div class="row justify-content-around"> 
+                        <a href='?action=delete&id={$card->getId()}'>
+                            <i class="fas fa-trash icono trash"></i>
+                        </a>
+                        <a href='?action=edit&id={$card->getId()}'>
+                            <i class="fas fa-pencil-alt icono"></i>
+                        </a>
+                        <a href='?action=checked&id={$card->getId()}'>
+                            <i class="fas fa-check-double"></i>
+                        </a>
+                    </div>
                 </div>
-            </div> 
+            </div>
             @endforeach
         </div>
     </div>
-    
+
     <br>
     <br>
 

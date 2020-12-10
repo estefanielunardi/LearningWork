@@ -2,11 +2,7 @@
 
 @section('content')
 <div class="container">
-    <!-- <div class="row justify-content-center"> -->
-    <!-- <div class="col-md-8"> -->
     <div class="card cardContainer">
-        <!-- <div class="card-header">{{ __('Dashboard') }}</div> -->
-
         <div class="card-body">
             @if (session('status'))
             <div class="alert alert-success" role="alert">
@@ -26,7 +22,17 @@
                     <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
                     <p class="card-text"><small class="text-muted">Description: {{$event->description}}</small></p>
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
-                    <button type="button" class="btn btn-info justify-content-center">Summit Event</button>
+                    <div class="row justify-content-around"> 
+                        <a href='?action=delete&id={$card->getId()}'>
+                            <i class="fas fa-trash icono trash"></i>
+                        </a>
+                        <a href='?action=edit&id={$card->getId()}'>
+                            <i class="fas fa-pencil-alt icono"></i>
+                        </a>
+                        <a href='?action=checked&id={$card->getId()}'>
+                            <i class="fas fa-check-double"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
             @endforeach

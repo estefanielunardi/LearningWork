@@ -57,7 +57,7 @@ class CreateEventTest extends TestCase
                 'name' => 'MasterClass Vue Paul'
             ]); 
 
-        $response = $this->post(route('comingEvents'));
+        $response = $this->get(route('comingEvents'));
         $response->assertViewIs('comingEvents');
     }
 
@@ -70,11 +70,37 @@ class CreateEventTest extends TestCase
 
     public function test_auth_user_can_delete_events()
     {
-        $this->actingAs(User::factory()->create());
-        $deleteEvent = Event::factory()->create();
+    //     $this->withoutExceptionHandling(); 
+
+    //     $this->actingAs(User::factory()->create());
+    //     $deleteEvent = Event::factory()->create();
         
-        $this->delete('/events/'.$deleteEvent->id);
+    //     $this->delete('/events/'.$deleteEvent->id);
         
-        $this->assertDatabaseCount('events', 1);
+    //     $this->assertDatabaseCount('events', 1);
+
+    $this->withoutExceptionHandling();
+
+        $response = $this->get('/events',[
+            'name' => 'MasterClass Vue Paul', 
+            'date' => '3/12/2020', 
+            'time' => '12:30',
+            'limit' => '30', 
+            'description' => 'Introducción al framework de JavaScript Vue', 
+            'requirements' => 'Conocimientos básicos de JavaScript',
+            'category' => 'standard',
+        ]);
+
+        $event = Event::first();
+        $this->assertCount(1, Event::all());
+        
+        $response = $this->delete('/events/' . $event->id);
+
+        $this->assertCount(0, Event::all());
+        $response->assertViewIs('comingEvents');
+        
+        // $response->assertRedirect('/events');
+    
+
     }
 }

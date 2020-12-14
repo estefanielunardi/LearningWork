@@ -11,7 +11,7 @@ class EventController extends Controller
     public function index()
     {
         $events= Event::whereIn('category', ['standard', 'both'])->get();
-
+        
         return view('comingEvents', compact('events'));
     }
 

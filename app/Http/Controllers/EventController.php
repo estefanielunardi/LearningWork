@@ -63,7 +63,7 @@ class EventController extends Controller
      */
     public function edit(Event $event)
     {
-        //
+        return view('events.edit',compact('event'));
     }
 
     /**
@@ -75,7 +75,20 @@ class EventController extends Controller
      */
     public function update(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'limit' => 'required',
+            'description' => 'required',
+            'requirements' => 'required', 
+            'category' => 'required', 
+        ]);
+  
+        $event->update($request->all());
+  
+        return redirect()->route('events.index')
+                        ->with('success','Event updated successfully');
     }
 
     /**

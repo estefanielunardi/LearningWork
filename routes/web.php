@@ -25,4 +25,10 @@ Route::get('/createEvents', [EventController::class, 'create'])->name('createEve
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
+<<<<<<< Updated upstream
 Route::get('/editEvents', [EventController::class, 'edit'])->name('editEvents')->middleware('auth'); 
+=======
+Route::delete('/delete',[EventController::class, 'delete'])->name('delete')->middleware('auth');
+
+Route::patch('/edit',[EventController::class, 'edit'])->name('edit')->middleware('auth');
+>>>>>>> Stashed changes

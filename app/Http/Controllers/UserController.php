@@ -17,9 +17,9 @@ class UserController extends Controller
 
         if($userEvents==null){
             $user->events()->attach($id);
-            $event=$user->events()->find($id);
+            $events=$user->events()->get();
 
-            return view('home');
+            return view('home', compact('events'));
         }
 
         return view('home', ['message'=>'ya estás inscrito']);
@@ -30,12 +30,11 @@ class UserController extends Controller
 
         $userId=auth()->id();   
         $user=User::find($userId);
-        $userEvents=$user->events()->find($id);
+        $user->events()->detach($id);
 
-        $user->events()->dettach($id);
+        $events=$user->events()->get();
 
-        return view('home', ['message'=>'ya has anulado tu subscripción ', 
-        'title' => $userEvents->title]); 
+        return view('home', compact('events')); 
 
     }
 }

@@ -17,13 +17,11 @@ class HomeController extends Controller
     
     public function home()
     {
-        // $userId=auth()->id();   
-        // $user=User::find($userId);
-        // $userEvents=$user->events()->find($id); // findall? fetchall? 
+        $userId=auth()->id();   
+        $user=User::find($userId);
+        $userEvents=$user->events()->get(); // findall? fetchall? 
 
-        // compact('userEvents')
-
-        return view('home');
+        return view('home', compact('userEvents'));
     }
 
     

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController; 
 use App\Http\Controllers\HomeController; 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth; 
 use App\Http\Controllers; 
 
@@ -21,14 +22,12 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/', [EventController::class, 'index'])->name('welcome');
 
+Route::get('/admin', [AdminController::class, 'index'])->name('adminDashboard')->middleware('admin');
+
 Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
-<<<<<<< Updated upstream
-Route::get('/editEvents', [EventController::class, 'edit'])->name('editEvents')->middleware('auth'); 
-=======
-Route::delete('/delete',[EventController::class, 'delete'])->name('delete')->middleware('auth');
+Route::delete('/admin/event/{id}',[EventController::class, 'destroy'])->name('destroyEvent')->middleware('admin');
 
-Route::patch('/edit',[EventController::class, 'edit'])->name('edit')->middleware('auth');
->>>>>>> Stashed changes
+Route::patch('/EditEvents',[EventController::class, 'edit'])->name('edit')->middleware('auth');

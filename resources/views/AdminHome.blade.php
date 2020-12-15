@@ -1,19 +1,17 @@
 @extends('layouts.app')
 
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Edit Event') }}</div>
+                <div class="card-header">{{ __('New Event') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('events.update',$events->id) }}">
+                    <form method="POST" action="{{ route('store') }}">
                         @csrf
-                        @method('PATCH') 
-                        {{-- <form action="{{ route('events.update',$events->id) }}" method="POST">
-                            @csrf
-                            @method('PUT') --}}
+
                         <div class="form-group row">
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Name') }}</label>
 
@@ -98,30 +96,31 @@
                             </div>
                         </div>
 
+                        @foreach ($events as $event)
+                          <div>
+                              {{$event->id}} - {{$event->name}} - <a href="#">delete</a> 
+                        </div>  
+                        @endforeach
+
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="category" class="form-control @error('name') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="name" autofocus>
-                                    <option value="standard">standard</option>
-                                    <option value="highlight">highlight</option>
-                                    <option value="both">both</option>
-                                </select>
-
-                                @error('Event Technical Requirements')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                            </div>
+                        <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-dark">
-                                    {{ __('Edit Event') }}
-                                </button>
+                               <form action="" method="post">
+                                    @method('put')
+                                    @csrf
+                                    <button type="submit"></button>
+                                </form>
+    
+                                {{-- <form action="{{route('destroyEvent')}}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit"></button>
+                                </form> --}}
+    
+
                             </div>
                         </div>
                     </form>

@@ -12,9 +12,6 @@ Route::get('/pastEvents', function () {
     return view('pastEvents');
 });
 
-// Route::get('/welcome', function () {
-//     return view('welcome');
-// });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
@@ -24,12 +21,12 @@ Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEven
 
 Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subscribe');
 
-
-
 Auth::routes();
 
 Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
-Route::delete('/delete',[EventController::class, 'delete'])->name('delete')->middleware('auth');
+Route::delete('/delete/{events}',[EventController::class, 'destroy'])->name('delete')->middleware('auth');
+
+// Route::update('/editEvent',[EventController::class, 'edit'])->name('edit')->middleware('auth');

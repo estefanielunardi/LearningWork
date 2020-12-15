@@ -13,9 +13,13 @@ class CreateEventsUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('events_users', function (Blueprint $table) {
+        Schema::create('event_user', function (Blueprint $table) {
             $table->id();
-            // $table->integer('user_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('event_id')->nullable();
+            $table->foreign('user_id')->references("id")->on("users")->onDelete("set null");
+            $table->foreign('event_id')->references("id")->on("events")->onDelete("set null");
+
             $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ class CreateEventsUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events_users');
+        Schema::dropIfExists('event_user');
     }
 }

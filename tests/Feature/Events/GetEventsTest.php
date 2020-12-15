@@ -26,7 +26,7 @@ class GetEventsTest extends TestCase
         $response = $this->get(route('welcome'))
             ->assertStatus(200)
             ->assertViewIs('welcome')
-            ->assertViewHas('events', $events)
+            ->assertViewHas('event', $events)
             ->assertSee($events[0] -> name);
             
     }

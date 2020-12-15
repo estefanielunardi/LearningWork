@@ -21,6 +21,8 @@ Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEven
 
 Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subscribe');
 
+Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe');
+
 Auth::routes();
 
 Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
@@ -30,3 +32,4 @@ Route::post('/store',[EventController::class, 'store'])->name('store')->middlewa
 Route::delete('/delete/{events}',[EventController::class, 'destroy'])->name('delete')->middleware('auth');
 
 // Route::update('/editEvent',[EventController::class, 'edit'])->name('edit')->middleware('auth');
+

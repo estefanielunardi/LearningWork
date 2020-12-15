@@ -32,7 +32,7 @@ class UserController extends Controller
         $user=User::find($userId);
         $userEvents=$user->events()->find($id);
 
-        $user->events()->dettach($id);
+        $user->events()->detach($id);
 
         return view('home', ['message'=>'ya has anulado tu subscripción ', 
         'title' => $userEvents->title]); 

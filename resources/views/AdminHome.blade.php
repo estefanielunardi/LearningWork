@@ -1,6 +1,5 @@
 @extends('layouts.app')
-@extends('layouts.app')
-@extends('layouts.app')
+
 
 @section('content')
 <div class="container">
@@ -97,30 +96,31 @@
                             </div>
                         </div>
 
+                        @foreach ($events as $event)
+                          <div>
+                              {{$event->id}} - {{$event->name}} - <a href="#">delete</a> 
+                        </div>  
+                        @endforeach
+
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
-
-                            <div class="col-md-6">
-                                <select id="category" class="form-control @error('name') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="name" autofocus>
-                                    <option value="standard">standard</option>
-                                    <option value="highlight">highlight</option>
-                                    <option value="both">both</option>
-                                </select>
-
-                                @error('Event Technical Requirements')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                                
-                            </div>
+                        <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-dark">
-                                    {{ __('New Event') }}
-                                </button>
+                               <form action="" method="post">
+                                    @method('put')
+                                    @csrf
+                                    <button type="submit"></button>
+                                </form>
+    
+                                {{-- <form action="{{route('destroyEvent')}}" method="post">
+                                    @method('delete')
+                                    @csrf
+                                    <button type="submit"></button>
+                                </form> --}}
+    
+
                             </div>
                         </div>
                     </form>

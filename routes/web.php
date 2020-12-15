@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController; 
 use App\Http\Controllers\HomeController; 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth; 
 use App\Http\Controllers; 
 
@@ -25,11 +26,12 @@ Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('u
 
 Auth::routes();
 
+Route::get('/admin', [AdminController::class, 'index'])->name('adminDashboard')->middleware('admin');
+
 Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
-Route::delete('/delete/{events}',[EventController::class, 'destroy'])->name('delete')->middleware('auth');
+Route::delete('/admin/event/{id}',[EventController::class, 'destroy'])->name('destroyEvent')->middleware('admin');
 
-// Route::update('/editEvent',[EventController::class, 'edit'])->name('edit')->middleware('auth');
-
+Route::patch('/EditEvents',[EventController::class, 'edit'])->name('edit')->middleware('auth');

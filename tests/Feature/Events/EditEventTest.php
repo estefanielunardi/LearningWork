@@ -52,7 +52,7 @@ class EditEventTest extends TestCase
         //We need to edit an event
         // We need to access an event to edit it
         
-        
+        $this->withoutExceptionHandling(); 
         $newEvent = $this->post('/events', [
             'name' => 'MasterClass Vue Paul', 
             'date' => '3/12/2020', 
@@ -62,9 +62,10 @@ class EditEventTest extends TestCase
             'requirements' => 'Conocimientos básicos de JavaScript',
             'category' => 'Standard',
         ]);
+        
         $newEvent = Event::factory()->edit(); 
     
-        // $response = $this->patch(route('editEvents'));
+        $response = $this->patch(route('editEvents'));
         // $response->assertViewIs('createEvents');
 
 

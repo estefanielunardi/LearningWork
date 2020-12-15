@@ -44,18 +44,34 @@ class EventController extends Controller
    
     public function edit(Event $event)
     {
-        //
+        return view('events.edit',compact('event'));
     }
 
    
     public function update(Request $request, Event $event)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'date' => 'required',
+            'time' => 'required',
+            'limit' => 'required',
+            'description' => 'required',
+            'requirements' => 'required', 
+            'category' => 'required', 
+        ]);
+  
+        $event->update($request->all());
+  
+        return redirect()->route('events.index')
+                        ->with('success','Event updated successfully');
     }
 
 
     public function destroy(Event $event)
     {
+        $event = Event::find($id);
+        $event->delete();
+        return view('eventDeleted', ['message' => 'Evento eliminado']);
         
     }
 
@@ -63,6 +79,7 @@ class EventController extends Controller
     {  
         $events= Event::whereIn('category', ['highlight', 'both'])->get();
         return view('welcome', compact('events'));
+
     }
 }
 

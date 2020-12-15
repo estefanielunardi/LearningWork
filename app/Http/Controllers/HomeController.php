@@ -19,9 +19,9 @@ class HomeController extends Controller
     {
         $userId=auth()->id();   
         $user=User::find($userId);
-        $userEvents=$user->events()->get(); // findall? fetchall? 
+        $events=$user->events()->get();
 
-        return view('home', compact('userEvents'));
+        return view('home', compact('events'));
     }
 
     

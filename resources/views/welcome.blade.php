@@ -127,10 +127,6 @@
                         <a href='{{ route( "subscribe" , $event->id) }}'>
                             <i class="fas fa-check-double"></i>
                         </a>
-
-                        <a href='{{ route( "unsubscribe" , $event->id) }}'>
-                            <i class="fas fa-door-open"></i>
-                        </a>
                     </div>
                 </div>
             </div>

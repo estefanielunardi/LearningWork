@@ -32,7 +32,7 @@ Route::get('/createEvents', [EventController::class, 'create'])->name('createEve
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
-Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy')->middleware('auth');
+Route::get('/events/{id}', [EventController::class, 'destroy'])->name('destroy')->middleware('auth');
 
 Route::patch('/EditEvents',[EventController::class, 'edit'])->name('edit')->middleware('auth');
 

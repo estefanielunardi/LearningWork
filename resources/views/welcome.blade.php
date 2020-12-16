@@ -118,7 +118,7 @@
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
                     <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
                     <div class="row justify-content-around"> 
-                        <a href='{{ route( "events" , $event->id) }}'>
+                        <a href='{{ route( "destroy" , $event->id) }}'>
                             <i class="fas fa-trash-alt"></i>
                         </a>
                         <a href='{{ route( "subscribe" , $event->id) }}'>

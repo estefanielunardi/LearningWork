@@ -21,7 +21,7 @@ class DeleteEventTest extends TestCase
 
         $eventDelete = Event::factory()->create();
         
-        $response = $this->delete('/events/'. $eventDelete->id);
+        $response = $this->get('/events/'. $eventDelete->id);
 
         $this->assertDatabaseCount('events', 0);
 

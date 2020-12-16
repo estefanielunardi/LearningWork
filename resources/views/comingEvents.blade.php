@@ -23,12 +23,6 @@
                     <p class="card-text"><small class="text-muted">Description: {{$event->description}}</small></p>
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
                     <div class="row justify-content-around"> 
-                        <!-- <a href='{{ route( "delete" , $event->id) }}'>
-                            <i class="fas fa-trash icono trash"></i>
-                        </a>
-                        <a href='{{ route( "delete" , $event->id) }}'>
-                            <i class="fas fa-pencil-alt icono"></i>
-                        </a> -->
                         <a href='{{ route( "subscribe" , $event->id) }}'>
                             <i class="fas fa-check-double"></i>
                         </a>

@@ -69,9 +69,9 @@ class EventController extends Controller
 
     public function destroy($id)
     {
-        Event::find($id);
+        Event::destroy($id);
         
-        return redirect('events');   
+        return redirect('home');   
     }
 
     public function highlight()

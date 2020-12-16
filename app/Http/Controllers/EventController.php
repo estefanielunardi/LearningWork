@@ -10,7 +10,9 @@ class EventController extends Controller
     
     public function index()
     {
-        $events= Event::whereIn('category', ['standard', 'both'])->get();
+        $events= Event::whereIn('category', ['standard', 'both']) //where('date' , '>=' , 'ActualDate')
+                ->orderBy('date', 'asc')
+                ->get();
         
         return view('comingEvents', compact('events'));
     }
@@ -76,7 +78,9 @@ class EventController extends Controller
 
     public function highlight()
     {  
-        $events= Event::whereIn('category', ['highlight', 'both'])->get();
+        $events= Event::whereIn('category', ['highlight', 'both'])
+                ->orderBy('date', 'asc')
+                ->get();
         return view('welcome', compact('events'));
 
     }

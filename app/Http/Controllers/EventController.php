@@ -67,12 +67,11 @@ class EventController extends Controller
     }
 
 
-    public function destroy(Event $event)
+    public function destroy($id)
     {
-        $event = Event::find($id);
-        $event->delete();
-        return view('eventDeleted', ['message' => 'Evento eliminado']);
+        Event::find($id);
         
+        return redirect('events');   
     }
 
     public function highlight()

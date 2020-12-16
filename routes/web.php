@@ -32,6 +32,8 @@ Route::get('/createEvents', [EventController::class, 'create'])->name('createEve
 
 Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
 
-Route::delete('/admin/event/{id}',[EventController::class, 'destroy'])->name('destroyEvent')->middleware('admin');
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('destroy');
 
 Route::patch('/EditEvents',[EventController::class, 'edit'])->name('edit')->middleware('auth');
+
+// route::resource('', Controller, funcion);

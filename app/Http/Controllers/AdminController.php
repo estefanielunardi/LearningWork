@@ -15,7 +15,7 @@ class AdminController extends Controller
     
     public function index()
     {
-        $events= Event::all(); 
+        $events= Event::orderBy('date', 'ASC')->get(); 
 
         return view('AdminHome', compact('events'));
     }

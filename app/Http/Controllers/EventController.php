@@ -10,7 +10,7 @@ class EventController extends Controller
     
     public function index()
     {
-        $events= Event::whereIn('category', ['standard', 'both']) //where('date' , '>=' , 'ActualDate')
+        $events= Event::whereIn('category', ['standard', 'both']) 
                 ->orderBy('date', 'asc')
                 ->get();
         
@@ -58,25 +58,6 @@ class EventController extends Controller
         $event->update($request->all());
         
         return redirect()->route('adminDashboard');
-      
-
-        // $event->name = $request->name;
-        // $event->date = $request->date;
-        // $event->time = $request->time;
-        // $event->limit = $request->limit;
-        // $event->description = $request->description;
-        // $event->requirements = $request->requirements;
-        // $event->category = $request->category;
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'date' => 'required',
-        //     'time' => 'required',
-        //     'limit' => 'required',
-        //     'description' => 'required',
-        //     'requirements' => 'required', 
-        //     'category' => 'required', 
-        // ]);
   
     }
 

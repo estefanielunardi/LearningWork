@@ -42,10 +42,7 @@
                         <a class="nav-link" href="{{ url('/comingEvents') }}">Coming Events</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/pastEvents') }}">Past Events</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/adminDashboard') }}">Profile</a>
+                        <a class="nav-link" href="{{ url('/admin') }}">Profile</a>
                     </li>
                     <li class="nav-item active">
                         <a href="{{ url('/createEvents') }}" class="nav-link">Create Event</a>
@@ -65,9 +62,6 @@
                 <ul class="navbar-nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/comingEvents') }}">Coming Events</a>
-                    </li>
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ url('/pastEvents') }}">Past Events</a>
                     </li>
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
@@ -95,8 +89,7 @@
     
                     <div class="card-body">
                         <form method="POST" action="{{ route('store') }}">
-                            @csrf
-                            
+                            @csrf                         
                             @foreach ($events as $event)
                               <div>
                                   {{$event->name}} - {{$event->date}} - {{$event->description}} - 
@@ -108,36 +101,14 @@
                                 </a>     
                              </div>  
                             @endforeach
-    
-                            <div class="form-group row">
-                            <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
-                            </div>
-    
-                            <div class="form-group row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                   <form action="" method="post">
-                                        @method('put')
-                                        @csrf
-                                        <button type="submit"></button>
-                                    </form>
-        
-                                    {{-- <form action="{{route('destroyEvent')}}" method="post">
-                                        @method('delete')
-                                        @csrf
-                                        <button type="submit"></button>
-                                    </form> --}}
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>   
     @extends('layouts.footer')
 </body>
-
 </html>
 
 

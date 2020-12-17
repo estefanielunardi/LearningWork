@@ -8,6 +8,11 @@ use App\Models\Event;
 
 class AdminController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+    
     public function index()
     {
         $events= Event::all(); 

@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
 
         \App\Models\User::factory(1)->create(
             [   
-                'name'=> 'Cannoli',
+                'name'=> 'eee',
                 'isAdmin'=>true
             ]
         );

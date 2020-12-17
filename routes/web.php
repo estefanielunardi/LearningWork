@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Auth; 
 use App\Http\Controllers; 
+use App\Http\Controllers\Auth\LoginController;
 
 
 Route::get('/pastEvents', function () {
@@ -24,7 +25,7 @@ Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEven
 
 Auth::routes();
 
-Route::get('/admin', [AdminController::class, 'index'])->name('adminDashboard')->middleware('admin');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
 Route::get('/events/{id}', [EventController::class, 'destroy'])->name('destroy')->middleware('admin');
 
@@ -42,6 +43,3 @@ Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subsc
 
 Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
-
-
-// route::resource('', Controller, funcion);

@@ -13,6 +13,12 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
+    // public function index(Request $request)
+    // {
+    //     $request->user()->authorizeRoles('admin');
+    //     return view('AdminHome');
+    // }
+
     public function index()
     {
         $events = Event::orderBy('event_date', 'ASC')->get();

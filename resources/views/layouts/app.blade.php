@@ -47,7 +47,6 @@
 
                         @guest
                         <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
-                        <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
                         @if (Route::has('login'))
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -62,8 +61,6 @@
                         @else
                         <a href="{{ url('/home') }}" class="nav-link">Profile</a>
                         <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
-                        <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
-
                         <a class="nav-link" href="#" role="button">
                             {{ Auth::user()->name }}
                         </a>

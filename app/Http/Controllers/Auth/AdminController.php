@@ -13,7 +13,11 @@ class AdminController extends Controller
         $this->middleware('admin');
     }
 
-    
+    public function index()
+    {
+        $events = Event::orderBy('event_date', 'ASC')->get();
+        return view('AdminHome', ['events' => $events]);
+    }
     
 }
 

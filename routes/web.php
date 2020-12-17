@@ -20,20 +20,28 @@ Route::get('/', [EventController::class, 'highlight'])->name('welcome');
 
 Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEvents');
 
-Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subscribe');
 
-Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe');
 
 Auth::routes();
 
 Route::get('/admin', [AdminController::class, 'index'])->name('adminDashboard')->middleware('admin');
 
-Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('auth'); 
+Route::get('/events/{id}', [EventController::class, 'destroy'])->name('destroy')->middleware('admin');
 
-Route::post('/store',[EventController::class, 'store'])->name('store')->middleware('auth');
+Route::get('/edit/{id}', [EventController::class, 'edit'])->name('edit')->middleware('admin');
 
-Route::get('/events/{id}', [EventController::class, 'destroy'])->name('destroy')->middleware('auth');
+Route::put('/update/{id}', [EventController::class, 'update'])->name('update')->middleware('admin');
 
-Route::patch('/EditEvents',[EventController::class, 'edit'])->name('edit')->middleware('auth');
+Route::get('/createEvents', [EventController::class, 'create'])->name('createEvents')->middleware('admin'); 
+
+Route::post('/store', [EventController::class, 'store'])->name('store')->middleware('admin');
+
+
+
+Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');
+
+Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
+
+
 
 // route::resource('', Controller, funcion);

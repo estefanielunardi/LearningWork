@@ -47,9 +47,6 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/home') }}">Profile</a>
                     </li>
-                    <li class="nav-item active">
-                        <a href="{{ url('/createEvents') }}" class="nav-link">Create Event</a>
-                    </li>
                     <a class="nav-link" href="#" role="button">
                         {{ Auth::user()->name }}
                     </a>
@@ -92,7 +89,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div id="entracePicture">
-                    <img class="img-fluid" src="https://i.ibb.co/TrnV0jB/logo-principal-01-01-01.png" alt="logo-principal-01-01-01" border="0"></a>
+                    <img class="img-fluid" src="https://i.ibb.co/gvbmsqG/logo-principal-Learning.png" alt="logo-principal-01-01-01" border="0"></a>
                 </div>
             </div>
         </div>
@@ -118,9 +115,6 @@
                     <p class="card-text"><small class="text-muted">Technical requirements to participate: {{$event->requirements}}</small></p>
                     <p class="card-text"><small class="text-muted">Participants number limit: {{$event->limit}}</small></p>
                     <div class="row justify-content-around"> 
-                        <a href='{{ route( "destroy" , $event->id) }}'>
-                            <i class="fas fa-trash-alt"></i>
-                        </a>
                         <a href='{{ route( "subscribe" , $event->id) }}'>
                             <i class="fas fa-check-double"></i>
                         </a>

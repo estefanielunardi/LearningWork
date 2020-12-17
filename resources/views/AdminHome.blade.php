@@ -1,132 +1,145 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('New Event') }}</div>
+    <!-- <div class="textTitleContainer"> -->
+    <title>LearningWorks</title>
+    <!-- </div> -->
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('store') }}">
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+
+    <style>
+        body {
+            font-family: 'Nunito';
+        }
+    </style>
+</head>
+
+<body class="container-fluid">
+    <div class="row">
+        @if (Route::has('login'))
+        <nav class="col-sm-12 navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="">LearningWorks</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                @auth
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/comingEvents') }}">Coming Events</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/pastEvents') }}">Past Events</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/adminDashboard') }}">Profile</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="{{ url('/createEvents') }}" class="nav-link">Create Event</a>
+                    </li>
+                    <a class="nav-link" href="#" role="button">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Date') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="date" type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ old('date') }}" required autocomplete="name" autofocus>
-
-                                @error('Event Date')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Time') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="time" type="time" class="form-control @error('name') is-invalid @enderror" name="time" value="{{ old('time') }}" required autocomplete="name" autofocus>
-
-                                @error('Event Time')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Limit Event Participants') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="limit" type="bigInteger" class="form-control @error('name') is-invalid @enderror" name="limit" value="{{ old('limit') }}" required autocomplete="name" autofocus>
-
-                                @error('Limit Event Participants')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Description') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="description" type="text" class="form-control @error('name') is-invalid @enderror" name="description" value="{{ old('description') }}" required autocomplete="name" autofocus>
-
-                                @error('Event Description')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Event Technical Requirements') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="requirements" type="text" class="form-control @error('name') is-invalid @enderror" name="requirements" value="{{ old('requirements') }}" required autocomplete="name" autofocus>
-
-                                @error('Event Technical Requirements')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        @foreach ($events as $event)
-                          <div>
-                              {{$event->id}} - {{$event->name}} - <a href="#">delete</a> 
-                        </div>  
-                        @endforeach
-
-                        <div class="form-group row">
-                        <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                               <form action="" method="post">
-                                    @method('put')
-                                    @csrf
-                                    <button type="submit"></button>
-                                </form>
-    
-                                {{-- <form action="{{route('destroyEvent')}}" method="post">
-                                    @method('delete')
-                                    @csrf
-                                    <button type="submit"></button>
-                                </form> --}}
-    
-
-                            </div>
-                        </div>
                     </form>
+                </ul>
+                @else
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/comingEvents') }}">Coming Events</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/pastEvents') }}">Past Events</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                </ul>
+                @if (Route::has('register'))
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                </ul>
+                @endif
+                @endauth
+            </div>
+            @endif
+        </nav>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">{{ __('List of Events') }}</div>
+    
+                    <div class="card-body">
+                        <form method="POST" action="{{ route('store') }}">
+                            @csrf
+                            
+                            @foreach ($events as $event)
+                              <div>
+                                  {{$event->name}} - {{$event->date}} - {{$event->description}} - 
+                                <a href='{{ route( "destroy" , $event->id) }}'>
+                                    <i class="fas fa-trash-alt"></i>
+                                </a>
+                                <a href='{{ route( "edit" , $event->id) }}'>
+                                    <i class="fas fa-edit"></i>
+                                </a>     
+                             </div>  
+                            @endforeach
+    
+                            <div class="form-group row">
+                            <!-- CREAR CHECKBOX PARA EL HIGHLIGHT -->
+                            </div>
+    
+                            <div class="form-group row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                   <form action="" method="post">
+                                        @method('put')
+                                        @csrf
+                                        <button type="submit"></button>
+                                    </form>
+        
+                                    {{-- <form action="{{route('destroyEvent')}}" method="post">
+                                        @method('delete')
+                                        @csrf
+                                        <button type="submit"></button>
+                                    </form> --}}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-@endsection
+    
+    @extends('layouts.footer')
+</body>
+
+</html>
+
+
+
+

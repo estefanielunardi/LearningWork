@@ -61,7 +61,6 @@
                         @endif
                         @else
                         <a href="{{ url('/home') }}" class="nav-link">Profile</a>
-                        <a href="{{ url('/createEvents') }}" class="nav-link">Create Event</a>
                         <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
                         <a href="{{ url('/pastEvents') }}" class="nav-link">Past events</a>
 

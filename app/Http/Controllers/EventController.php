@@ -44,28 +44,40 @@ class EventController extends Controller
     }
 
    
-    public function edit(Event $event)
+    public function edit($id)
     {
-        return view('events.edit',compact('event'));
+        $event = Event::find($id);
+        
+        return view('EventEdit',compact('event'));
     }
 
    
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'limit' => 'required',
-            'description' => 'required',
-            'requirements' => 'required', 
-            'category' => 'required', 
-        ]);
-  
+        $event = Event::find($id);
         $event->update($request->all());
+        
+        return redirect()->route('adminDashboard');
+      
+
+        // $event->name = $request->name;
+        // $event->date = $request->date;
+        // $event->time = $request->time;
+        // $event->limit = $request->limit;
+        // $event->description = $request->description;
+        // $event->requirements = $request->requirements;
+        // $event->category = $request->category;
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'date' => 'required',
+        //     'time' => 'required',
+        //     'limit' => 'required',
+        //     'description' => 'required',
+        //     'requirements' => 'required', 
+        //     'category' => 'required', 
+        // ]);
   
-        return redirect()->route('events.index')
-                        ->with('success','Event updated successfully');
     }
 
 

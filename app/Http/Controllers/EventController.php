@@ -57,7 +57,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->update($request->all());
         
-        return redirect()->route('adminDashboard');
+        return redirect()->route('home');
   
     }
 

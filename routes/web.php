@@ -21,6 +21,8 @@ Route::get('/', [EventController::class, 'highlight'])->name('welcome');
 
 Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEvents');
 
+Route::get('/welcome', [EventController::class, 'highlight'])->name('welcome')->middleware('admin');
+
 
 
 Auth::routes();

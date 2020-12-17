@@ -44,7 +44,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-
+                        
                         @guest
                         <a href="{{ url('/comingEvents') }}" class="nav-link">Coming events</a>
                         @if (Route::has('login'))

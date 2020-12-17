@@ -31,7 +31,7 @@
     <div class="row">
         @if (Route::has('login'))
         <nav class="col-sm-12 navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="">LearningWorks</a>
+            <a class="navbar-brand" href="{{ url('/welcome') }}">LearningWorks</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>

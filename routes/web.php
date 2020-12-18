@@ -10,22 +10,18 @@ use App\Http\Controllers;
 use App\Http\Controllers\Auth\LoginController;
 
 
-Route::get('/pastEvents', function () {
-    return view('pastEvents');
-});
 
-
-Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/', [EventController::class, 'highlight'])->name('welcome');
 
 Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEvents');
 
-Route::get('/welcome', [EventController::class, 'highlight'])->name('welcome')->middleware('admin');
 
 
 
 Auth::routes();
+
+Route::get('/welcome', [EventController::class, 'highlight'])->name('welcome')->middleware('admin');
 
 Route::get('/admin', [AdminController::class, 'index'])->name('admin');
 
@@ -40,6 +36,8 @@ Route::get('/createEvents', [EventController::class, 'create'])->name('createEve
 Route::post('/store', [EventController::class, 'store'])->name('store')->middleware('admin');
 
 
+
+Route::get('/home', [HomeController::class, 'home'])->name('home');
 
 Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subscribe')->middleware('auth');
 

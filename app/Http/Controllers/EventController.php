@@ -13,6 +13,7 @@ class EventController extends Controller
         $events= Event::whereIn('category', ['standard', 'both']) 
                 ->orderBy('date', 'asc')
                 ->get();
+        $events = Event::paginate(6);
         
         return view('comingEvents', compact('events'));
     }

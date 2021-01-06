@@ -59,25 +59,6 @@ class EventController extends Controller
         
         return redirect()->route('adminDashboard');
       
-
-        // $event->name = $request->name;
-        // $event->date = $request->date;
-        // $event->time = $request->time;
-        // $event->limit = $request->limit;
-        // $event->description = $request->description;
-        // $event->requirements = $request->requirements;
-        // $event->category = $request->category;
-
-        // $request->validate([
-        //     'name' => 'required',
-        //     'date' => 'required',
-        //     'time' => 'required',
-        //     'limit' => 'required',
-        //     'description' => 'required',
-        //     'requirements' => 'required', 
-        //     'category' => 'required', 
-        // ]);
-  
     }
 
 

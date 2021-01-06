@@ -143,7 +143,7 @@
         <div>
             <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">
                 <div class="card border-dark mb-3" style="width: 18rem;">
-                    <img src="https://i.pinimg.com/736x/34/07/e2/3407e2a758c770b90ab39008a0965409.jpg" class="card-img-top" alt="...">
+                    <img src="https://i.ytimg.com/vi/J6gZCjsH3gE/hqdefault.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title">Past Events</h5>
                         <a href="{{ url('/pastEvents') }}" class="btn btn-dark">Go to Past Events</a>

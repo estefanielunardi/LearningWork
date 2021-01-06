@@ -125,7 +125,7 @@
     <br>
     <br>
 
-    <div class="row row-cols-1">
+    <div class="row row-cols-2">
         <div>
             <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">
                 <div class="card border-dark mb-3" style="width: 18rem;">
@@ -137,11 +137,8 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="row row-cols-1">
         <div>
-            <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">
+            <div class="col-sm-12 mb-4 text-center" id="containerBoxPast">
                 <div class="card border-dark mb-3" style="width: 18rem;">
                     <img src="https://i.ytimg.com/vi/J6gZCjsH3gE/hqdefault.jpg" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -151,6 +148,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     @extends('layouts.footer')
 </body>

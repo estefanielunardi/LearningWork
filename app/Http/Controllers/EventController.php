@@ -10,11 +10,21 @@ class EventController extends Controller
     
     public function index()
     {
-        $events= Event::whereIn('category', ['standard', 'both']) //where('date' , '>=' , 'ActualDate')
+        $events= Event::whereIn('category', ['standard', 'both'])
                 ->orderBy('date', 'asc')
                 ->get();
         
         return view('comingEvents', compact('events'));
+    }
+
+    public function pastEvents()
+    {
+        $actualDate = date('Y-m-d', time());
+        $events = Event::whereDate('date', '<' , $actualDate)
+                ->orderBy('date', 'asc')
+                ->get();
+
+        return view('pastEvents', compact('events'));
     }
 
     public function create()
@@ -51,7 +61,6 @@ class EventController extends Controller
         return view('EventEdit',compact('event'));
     }
 
-   
     public function update(Request $request, $id)
     {
         $event = Event::find($id);
@@ -60,7 +69,6 @@ class EventController extends Controller
         return redirect()->route('adminDashboard');
       
     }
-
 
     public function destroy($id)
     {
@@ -78,12 +86,5 @@ class EventController extends Controller
 
     }
 
-    public function pastEvents()
-    {
-        $actualDate = date('Y-m-d', time());
-        $events = Event::whereDate('event_date', '<' , $actualDate)
-                    ->orderBy('event_date', 'DESC');
-        return view('pastEvents', compact('events'));
-    }
 }
 

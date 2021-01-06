@@ -16,6 +16,7 @@ Route::get('/', [EventController::class, 'highlight'])->name('welcome');
 
 Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEvents');
 
+Route::get('/pastEvents', [EventController::class, 'pastEvents'])->name('pastEvents');
 
 
 

@@ -10,7 +10,9 @@ class EventController extends Controller
     
     public function index()
     {
+        $actualDate = date('Y-m-d', time());
         $events= Event::whereIn('category', ['standard', 'both'])
+                ->whereDate('date' , '>' , $actualDate)
                 ->orderBy('date', 'asc')
                 ->get();
         

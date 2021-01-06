@@ -77,5 +77,13 @@ class EventController extends Controller
         return view('welcome', compact('events'));
 
     }
+
+    public function pastEvents()
+    {
+        $actualDate = date('Y-m-d', time());
+        $events = Event::whereDate('event_date', '<' , $actualDate)
+                    ->orderBy('event_date', 'DESC');
+        return view('pastEvents', compact('events'));
+    }
 }
 

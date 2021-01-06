@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers; 
 
 
-Route::get('/pastEvents', function () {
-    return view('pastEvents');
-});
+// Route::get('/pastEvents', function () {
+//     return view('pastEvents');
+// });
 
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
@@ -21,6 +21,7 @@ Route::get('/', [EventController::class, 'highlight'])->name('welcome');
 Route::get('/comingEvents', [EventController::class, 'index'])->name('comingEvents');
 
 Route::get('/pastEvents', [EventController::class, 'pastEvents'])->name('pastEvents');
+
 
 Auth::routes();
 

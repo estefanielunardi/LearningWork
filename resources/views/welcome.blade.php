@@ -42,6 +42,9 @@
                         <a class="nav-link" href="{{ url('/comingEvents') }}">Coming Events</a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/pastEvents') }}">Past Events</a>
+                    </li>
+                    <li class="nav-item active">
                         <a class="nav-link" href="{{ url('/home') }}">Profile</a>
                     </li>
                     <a class="nav-link" href="#" role="button">
@@ -135,6 +138,19 @@
             </div>
         </div>
     </div>
+
+    <div class="row row-cols-1">
+        <div>
+            <div class="col-ms-12 mb-4 text-center" id="containerBoxFuture">
+                <div class="card border-dark mb-3" style="width: 18rem;">
+                    <img src="https://i.pinimg.com/736x/34/07/e2/3407e2a758c770b90ab39008a0965409.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Past Events</h5>
+                        <a href="{{ url('/pastEvents') }}" class="btn btn-dark">Go to Past Events</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     @extends('layouts.footer')
 </body>

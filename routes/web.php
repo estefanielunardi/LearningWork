@@ -43,5 +43,3 @@ Route::get('/subscribe/{id}', [UserController::class, 'subscribe'])->name('subsc
 Route::get('/unsubscribe/{id}', [UserController::class, 'unsubscribe'])->name('unsubscribe')->middleware('auth');
 
 
-
-// route::resource('', Controller, funcion);
